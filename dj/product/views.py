@@ -56,7 +56,7 @@ def saveTable(request):
         response = FileResponse(file)
         response['Content-Type'] = 'application/octet-stream'
         # file_name下载下来保存的文件名字
-        content_dis = 'attachment;filename=' + update_file_path
+        content_dis = 'attachment;filename=' + update_file_path.split('/')[-1]
         response["Access-Control-Expose-Headers"] = "Content-Disposition"
 
         response['Content-Disposition'] = content_dis

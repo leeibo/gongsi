@@ -95,7 +95,7 @@ def export_to_excel(table):
         ws.column_dimensions[chr(65 + col_idx)].width = col_width
 
     # 保存工作簿为 Excel 文件
-    loca = time.strftime('%Y-%m-%d-%H-%M-%S')
+    loca = time.strftime('./tables/%Y-%m-%d-%H-%M-%S')
     excel_filename = f'{loca}.xlsx'
     wb.save(excel_filename)
     return excel_filename
