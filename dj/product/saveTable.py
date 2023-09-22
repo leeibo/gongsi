@@ -66,7 +66,7 @@ def export_to_excel(table):
         ws.cell(row=crow, column=12, value=f"").alignment = Alignment(horizontal='center')
         ans += float(table[row]['amount'])
         crow += 1
-
+    ans = round(ans, 2)
     # ws.cell(row=crow, column=1, value=f"{crow-1}").alignment = Alignment(horizontal='center')
     # ws.cell(row=crow, column=2, value=f"合计").alignment = Alignment(horizontal='center')
 
