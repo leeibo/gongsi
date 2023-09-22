@@ -79,7 +79,7 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': 3306,
         'USER': 'root',
-        'PASSWORD': '123'
+        'PASSWORD': 'Sjk_5201314'
     }
 }
 
@@ -117,4 +117,6 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",  # 允许的前端源
+    "http://8.130.36.142"
 ]
+ALLOWED_HOSTS = ["*"]
