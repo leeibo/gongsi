@@ -47,11 +47,12 @@ def saveTable(request):
     try:
         data = json.loads(request.body)
         table = data['table']
+        op = data['option']
 
         print(table)
 
         # return JsonResponse({'msg': table, 'code': 200}, json_dumps_params={'ensure_ascii': False})
-        update_file_path = export_to_excel(table)
+        update_file_path = export_to_excel(table, op)
         file = open(update_file_path, 'rb')
         response = FileResponse(file)
         response['Content-Type'] = 'application/octet-stream'
