@@ -6,6 +6,12 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment
 from .trans_rmb import money_en_to_cn
 from openpyxl.utils import get_column_letter
+from openpyxl.styles import Border, Side
+
+border = Border(left=Side(style='thin'),
+                right=Side(style='thin'),
+                top=Side(style='thin'),
+                bottom=Side(style='thin'))
 
 nameMap = {
     "name": '名称',
@@ -100,10 +106,15 @@ def export_to_excel(table, options):
 
     ws.merge_cells(None, crow, 1, crow, max_col)
     ws.cell(row=crow, column=1, value="致：").alignment = Alignment(horizontal='left')
+
     crow += 1
 
     ws.merge_cells(None, crow, 1, crow, max_col)
     ws.cell(row=crow, column=1, value="联系人：        电话：").alignment = Alignment(horizontal='left')
+    crow += 1
+
+    ws.merge_cells(None, crow, 1, crow, max_col)
+    ws.cell(row=crow, column=1, value="安钢集团永通球墨铸铁管报价单").alignment = Alignment(horizontal='center')
     crow += 1
 
     for col, label in enumerate(header_labels, start=1):
@@ -151,7 +162,7 @@ def export_to_excel(table, options):
     crow += 1
 
     ws.merge_cells(None, crow, 1, crow, max_col)
-    ws.cell(row=crow, column=1, value="联系人：李胜利 电话：13484908787 传真：0298569781").alignment = Alignment(
+    ws.cell(row=crow, column=1, value="联系人：  电话： 传真：0298569781").alignment = Alignment(
         horizontal='right')
     crow += 1
 
@@ -159,6 +170,9 @@ def export_to_excel(table, options):
     ws.cell(row=crow, column=1, value=f"{time.strftime('%Y年%m月%d日')}").alignment = Alignment(
         horizontal='right')
     crow += 1
+    for i in range(3, crow):
+        for j in range(1, max_col + 1):
+            ws.cell(row=i, column=j).border = border
     # for col_idx, col_width in enumerate([10, 15, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, ]):
     #     ws.column_dimensions[chr(65 + col_idx)].width = col_width
     for i in range(1, max_col):
@@ -171,6 +185,5 @@ def export_to_excel(table, options):
     wb.save(excel_filename)
     return excel_filename
     # print(f"表格数据已成功导出到 {excel_filename}")
-
 
 # export_to_excel(data, op)
