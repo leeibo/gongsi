@@ -10,4 +10,5 @@ class Product(models.Model):
     level = models.CharField(max_length=50)  # 产品级别，最大长度为50个字符
     weight = models.DecimalField(max_digits=10, decimal_places=2)  # 产品重量，最多10位数字和2位小数
     kind = models.CharField(max_length=255)
+    unit = models.CharField(max_length=255)
 

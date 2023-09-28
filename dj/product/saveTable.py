@@ -19,10 +19,10 @@ nameMap = {
     "kind": '类型',
     "level": '级别',
     "unit": '单位',
-    "weight": '重量',
+    "weight": '单重',
     "quantity": '数量',
     "price": '价格/kg',
-    "unitprice": '价格/件',
+    "unitprice": '单价',
     "amount": '合计'
 }
 

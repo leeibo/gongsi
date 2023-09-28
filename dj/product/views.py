@@ -37,7 +37,8 @@ def searchProduct(request):
                 "specification": item.specification,
                 "level": item.level,
                 "weight": item.weight,
-                "kind": item.kind
+                "kind": item.kind,
+                "unit": item.unit
             })
         return JsonResponse({'msg': result, 'code': 200}, json_dumps_params={'ensure_ascii': False})
     return JsonResponse({'msg': '查询失败', 'code': 400}, json_dumps_params={'ensure_ascii': False})
