@@ -153,11 +153,13 @@ def export_to_excel(table, options):
     ws.cell(row=crow, column=1, value=f"说明").alignment = Alignment(horizontal='center')
 
     ws.merge_cells(None, crow, 2, crow, max_col)
+    content="1、货到______施工现场，______含胶圈，含13%增值税，不含卸车费。\n2、价格随行就市调整。\n3、交货期：收到发货通知后 ----日内到货。\n4、执行GB/T13295-2019标准 T型 K9 级。防腐措施：内衬水泥，外喷锌加沥青。"
+    ws.cell(row=crow, column=2, value=content).alignment = Alignment(horizontal='left')
     # ws.cell(row=crow, column=2, value="西安永通球墨铸铁管营销有限公司").alignment = Alignment(
     #     horizontal='right')
     crow += 1
     ws.merge_cells(None, crow, 1, crow, max_col)
-    ws.cell(row=crow, column=1, value="西安永通球墨铸铁管营销有限公司").alignment = Alignment(
+    ws.cell(row=crow, column=1, value="西安永通球墨铸铁管销售有限公司").alignment = Alignment(
         horizontal='right')
     crow += 1
 
